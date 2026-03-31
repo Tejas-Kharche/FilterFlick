@@ -68,6 +68,7 @@ GESTURE_MAP = {
     "fist":       "none",        # ✊  → remove filter
     "open_palm":  "dog",         # 🖐️ → dog filter
     "one_finger": "crown",       # ☝️  → crown filter
+    "rock":       "mask",        # 🤘 → mask filter
 }
 
 
@@ -178,6 +179,10 @@ class GestureDetector:
         # ☝️ One Finger — only index extended
         if index_ext and not thumb_ext and not middle_ext and not ring_ext and not pinky_ext:
             return ("one_finger", 0.90)
+
+        # 🤘 Rock on — index and pinky extended
+        if index_ext and pinky_ext and not thumb_ext and not middle_ext and not ring_ext:
+            return ("rock", 0.90)
 
         # ✌️ Peace — index + middle only (no thumb, no ring, no pinky)
         if index_ext and middle_ext and not thumb_ext and not ring_ext and not pinky_ext:
