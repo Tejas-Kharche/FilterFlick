@@ -105,33 +105,35 @@ class GestureDetector:
         if not results.multi_hand_landmarks or not results.multi_handedness:
             return None
 
-        # Use the first detected hand
-        hand_landmarks = results.multi_hand_landmarks[0]
-        handedness_info = results.multi_handedness[0]
-        handedness = handedness_info.classification[0].label  # "Left" or "Right"
-        mp_confidence = handedness_info.classification[0].score
+        best_result = None
+        highest_confidence = 0.0
 
-        # Classify gesture
-        gesture_name, gesture_confidence = self._classify(
-            hand_landmarks.landmark, handedness
-        )
+        for idx, hand_landmarks in enumerate(results.multi_hand_landmarks):
+            handedness_info = results.multi_handedness[idx]
+            handedness = handedness_info.classification[0].label  # "Left" or "Right"
+            mp_confidence = handedness_info.classification[0].score
 
-        if gesture_name is None:
-            return None
+            # Classify gesture
+            gesture_name, gesture_confidence = self._classify(
+                hand_landmarks.landmark, handedness
+            )
 
-        # Combine MediaPipe confidence with gesture clarity
-        combined_confidence = mp_confidence * gesture_confidence
+            if gesture_name is None:
+                continue
 
-        if combined_confidence < GESTURE_CONFIDENCE_THRESHOLD:
-            return None
+            # Combine MediaPipe confidence with gesture clarity
+            combined_confidence = mp_confidence * gesture_confidence
 
-        action = GESTURE_MAP.get(gesture_name, "none")
+            if combined_confidence >= GESTURE_CONFIDENCE_THRESHOLD and combined_confidence > highest_confidence:
+                highest_confidence = combined_confidence
+                action = GESTURE_MAP.get(gesture_name, "none")
+                best_result = GestureResult(
+                    name=gesture_name,
+                    confidence=combined_confidence,
+                    action=action,
+                )
 
-        return GestureResult(
-            name=gesture_name,
-            confidence=combined_confidence,
-            action=action,
-        )
+        return best_result
 
     def check_cooldown(self) -> bool:
         """Check if enough time has passed since the last gesture trigger."""

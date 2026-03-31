@@ -16,7 +16,7 @@ PROCESSING_SCALE = 0.5             # Internal processing at half resolution
 # MediaPipe
 # ──────────────────────────────────────────────
 MAX_FACES = 2
-MAX_HANDS = 1
+MAX_HANDS = 2
 DETECTION_CONFIDENCE = 0.5
 TRACKING_CONFIDENCE = 0.5
 GESTURE_CONFIDENCE_THRESHOLD = 0.6
