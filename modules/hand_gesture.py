@@ -63,11 +63,10 @@ WRIST = 0
 # Gesture → Action mapping
 # ──────────────────────────────────────────────
 GESTURE_MAP = {
-    "peace":      "next",        # ✌️  → cycle to next filter
+    "peace":      "crown",       # ✌️  → crown filter
     "thumbs_up":  "mask",        # 👍 → mask filter
     "fist":       "none",        # ✊  → remove filter
     "open_palm":  "dog",         # 🖐️ → dog filter
-    "one_finger": "crown",       # ☝️  → crown filter
     "rock":       "sunglasses",  # 🤘 → sunglasses
 }
 
@@ -175,10 +174,6 @@ class GestureDetector:
                 return ("thumbs_up", 0.90)
             else:
                 return ("thumbs_up", 0.70)
-
-        # ☝️ One Finger — only index extended
-        if index_ext and not thumb_ext and not middle_ext and not ring_ext and not pinky_ext:
-            return ("one_finger", 0.90)
 
         # 🤘 Rock on — index and pinky extended
         if index_ext and pinky_ext and not thumb_ext and not middle_ext and not ring_ext:

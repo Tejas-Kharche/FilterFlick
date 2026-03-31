@@ -64,8 +64,8 @@ def main():
     fps = 0.0
 
     logger.info("FilterFlick ready!")
-    logger.info("Controls: Q=Quit | S=Screenshot | R=Record | N=Next Filter")
-    logger.info("Gestures: Peace=Next | Thumbs Up=Sunglasses | Fist=Remove | Open Palm=Dog | One Finger=Crown")
+    logger.info("Controls: Q=Quit | S=Screenshot | R=Record")
+    logger.info("Gestures: Peace=Crown | Thumbs Up=Mask | Rock=Sunglasses | Fist=Remove | Open Palm=Dog")
 
     # ── Main loop ───────────────────────────────
     try:
@@ -88,11 +88,7 @@ def main():
                 last_gesture = gesture.name
 
                 # Apply gesture action
-                if gesture.action == "next":
-                    filter_index = (filter_index + 1) % len(FILTER_ORDER)
-                    active_filter = FILTER_ORDER[filter_index]
-                    logger.info(f"[Gesture: {gesture.name}] → Next filter: {active_filter}")
-                elif gesture.action == "none":
+                if gesture.action == "none":
                     active_filter = "none"
                     filter_index = 0
                     logger.info(f"[Gesture: {gesture.name}] → Filter removed")
@@ -141,10 +137,6 @@ def main():
             elif action == Action.TOGGLE_RECORDING:
                 h, w = full_frame.shape[:2]
                 controls.toggle_recording((h, w))
-            elif action == Action.NEXT_FILTER:
-                filter_index = (filter_index + 1) % len(FILTER_ORDER)
-                active_filter = FILTER_ORDER[filter_index]
-                logger.info(f"[Key: N] → Filter: {active_filter}")
 
             # ─── 9. FPS calculation ───────────────
             t_end = time.perf_counter()

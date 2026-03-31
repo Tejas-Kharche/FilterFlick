@@ -82,11 +82,10 @@ Simply hold your hand up to the camera to trigger these actions:
 
 | Gesture | Action Triggered |
 |---------|-----------------|
-| ✌️ **Peace Sign** | Cycle to the **next filter** |
+| ✌️ **Peace Sign** | Equip the **Crown** |
 | 👍 **Thumbs Up** | Equip the **Mask** filter |
 | 🤘 **Rock On** | Equip the **Sunglasses** |
 | 🖐️ **Open Palm** | Equip the **Dog** filter (Ears, Nose, and Tongue) |
-| ☝️ **One Finger** | Equip the **Crown** |
 | ✊ **Closed Fist** | **Clear/Remove** active filter |
 
 ---
@@ -121,7 +120,6 @@ python main.py
 
 ### Keyboard Fallbacks
 If you don't want to use hand gestures, you can use your keyboard:
-- `N`: Cycle to Next Filter
 - `S`: Save a Screenshot
 - `R`: Start / Stop Video Recording
 - `Q`: Quit Application

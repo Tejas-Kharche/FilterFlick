@@ -19,7 +19,6 @@ class Action(Enum):
     QUIT = auto()
     SCREENSHOT = auto()
     TOGGLE_RECORDING = auto()
-    NEXT_FILTER = auto()
 
 
 # Key → Action mapping
@@ -30,8 +29,6 @@ KEY_MAP = {
     ord('S'): Action.SCREENSHOT,
     ord('r'): Action.TOGGLE_RECORDING,
     ord('R'): Action.TOGGLE_RECORDING,
-    ord('n'): Action.NEXT_FILTER,
-    ord('N'): Action.NEXT_FILTER,
 }
 
 
