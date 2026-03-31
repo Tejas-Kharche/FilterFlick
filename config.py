@@ -37,23 +37,23 @@ OUTPUT_DIR = os.path.join(BASE_DIR, "output")
 
 # Scale multipliers relative to eye_distance (or bbox_width for mask)
 FILTER_SCALES = {
-    "sunglasses": 2.5,
-    "dog_ears":   3.0,
-    "dog_nose":   1.2,
-    "dog_tongue": 1.0,
-    "crown":      2.8,
-    "mask":       0.9,    # relative to bbox width, not eye_distance
+    "sunglasses": 2.8,    # Increased slightly to cover eyes fully
+    "dog_ears":   3.2,    # Needs to span the head width
+    "dog_nose":   0.8,    # Reduced so it looks like a realistic cartoon nose size
+    "dog_tongue": 1.2,    # Slightly larger tongue
+    "crown":      2.8,    # Good width for a crown
+    "mask":       0.9,    # relative to bbox width
 }
 
 # Vertical offset multipliers (relative to eye_distance)
 # Positive = move downward, Negative = move upward
 FILTER_OFFSETS_Y = {
-    "sunglasses": 0.0,
-    "dog_ears":  -1.0,
-    "dog_nose":   0.0,
-    "dog_tongue": 0.6,
-    "crown":     -1.4,
-    "mask":       0.0,
+    "sunglasses": 0.0,    # Dead center on eyes
+    "dog_ears":  -0.6,    # Moved slightly down so ears rest on head
+    "dog_nose":   0.0,    # Dead center on nose tip
+    "dog_tongue": 0.8,    # Moved further down to hang below the chin
+    "crown":     -1.0,    # Rest directly on top of head
+    "mask":       0.0,    # Midway between nose and chin
 }
 
 # ──────────────────────────────────────────────
