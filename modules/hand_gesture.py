@@ -64,11 +64,11 @@ WRIST = 0
 # ──────────────────────────────────────────────
 GESTURE_MAP = {
     "peace":      "next",        # ✌️  → cycle to next filter
-    "thumbs_up":  "sunglasses",  # 👍 → sunglasses
+    "thumbs_up":  "mask",        # 👍 → mask filter
     "fist":       "none",        # ✊  → remove filter
     "open_palm":  "dog",         # 🖐️ → dog filter
     "one_finger": "crown",       # ☝️  → crown filter
-    "rock":       "mask",        # 🤘 → mask filter
+    "rock":       "sunglasses",  # 🤘 → sunglasses
 }
 
 

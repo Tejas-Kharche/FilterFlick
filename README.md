@@ -83,7 +83,8 @@ Simply hold your hand up to the camera to trigger these actions:
 | Gesture | Action Triggered |
 |---------|-----------------|
 | ✌️ **Peace Sign** | Cycle to the **next filter** |
-| 👍 **Thumbs Up** | Equip the **Sunglasses** |
+| 👍 **Thumbs Up** | Equip the **Mask** filter |
+| 🤘 **Rock On** | Equip the **Sunglasses** |
 | 🖐️ **Open Palm** | Equip the **Dog** filter (Ears, Nose, and Tongue) |
 | ☝️ **One Finger** | Equip the **Crown** |
 | ✊ **Closed Fist** | **Clear/Remove** active filter |
